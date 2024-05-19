@@ -1,26 +1,15 @@
 const mongoose = require('mongoose');
 
-const dataSchema = mongoose.Schema({
-    id: {
-        type: Int16Array,
-        required: true
-    },
-    location: {
-        type: String,
-        required: true
-    },
-    image: {
-        type: String,
-        required: true
-    },
-    story: {
-        type: String,
-        required: true
-    },
-    
-});
+const storySchema = new mongoose.Schema({
+  title: String,
+  content: String,
+  image: String,
+  location: {
+    type: { type: String, default: 'Point' },
+    coordinates: [Number],
+  },
+}, { timestamps: true });
 
+const Story = mongoose.model('Story', storySchema);
 
-const localstory = dataSchema.mode('localstory', dataSchema);
-
-module.exports  = localstory;
+module.exports = Story;

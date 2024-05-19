@@ -9,8 +9,11 @@ const app = express();
 connectDB();
 
 // Apply CORS middleware
+
+
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../c;oemt/build')));
 app.use('/localstory', storingdata);
 
 const port = process.env.PORT || 3001;
@@ -19,7 +22,7 @@ const port = process.env.PORT || 3001;
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.send('helloworld');
 });
 
 app.listen(port, () => {
