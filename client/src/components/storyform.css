@@ -1,0 +1,85 @@
+/* StoryForm.css */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #f6f8fc, #e9ecef);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #444;
+  margin-bottom: 25px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 2em;
+  letter-spacing: 1px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="text"],
+input[type="file"],
+textarea {
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+input[type="file"] {
+  padding: 3px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+button {
+  padding: 15px;
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #218838, #1e7e34);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  textarea {
+    height: 200px;
+  }
+}
