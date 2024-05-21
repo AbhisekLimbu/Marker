@@ -6,7 +6,7 @@ const storySchema = new mongoose.Schema({
   image: String,
   location: {
     type: { type: String, default: 'Point' },
-    coordinates: [Number],
+    coordinates: [Number], 
   },
 }, { timestamps: true });
 

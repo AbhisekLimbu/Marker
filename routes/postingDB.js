@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const localstory = require('./models/datas.model.js');
+const localstory = require('../models/datas.model.js'); // Ensure the path is correct
 
 router.post('/', async (req, res) => {
     try {
