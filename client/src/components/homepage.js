@@ -1,36 +1,60 @@
-  import React from 'react';
-  import './homepage.css';
+import React from 'react';
+import './homepage.css';
+import Navbar from './Navbar';
 
-  const Homepage = () => {
-    return (
-      <div className="home-page">
-        <header className="header">
-          <h3>MARKER</h3>
-          <div className='slogan'>
-            <p>TELL YOUR STORY</p>
-          </div>
-        </header>
-        <main className="main-content">
-          <section className="latest-articles">
-            <div className="articles-container">
-              <div className="article-card">
-                <img src="./assets/pictureone.jpg" alt="Bouddhanath" />
-                <h3>Bouddhanath</h3>
-                <p>
-              
-                  Bouddhanath, itlocated in Kathmandu, Nepal, is one of the largest stupas in the world and a significant pilgrimage site for Buddhists. 
-                  <br>
-                  </br>Its imposing white dome and golden spire rise above the bustling streets, creating a serene and spiritual atmosphere. Surrounding the stupa are colorful prayer flags, fluttering in the wind and carrying prayers for peace and compassion. Pilgrims and visitors alike circumambulate the stupa, spinning prayer wheels and chanting mantras, while monks and devotees offer butter lamps and prayers. The rich cultural heritage and religious significance of Bouddhanath make it a must-visit destination for anyone seeking spiritual enlightenment and cultural immersion in Nepal.
-                </p>
-              </div>
-            </div>
-          </section>
-        </main>
-        <footer className="footer">
-          <p>Building a Bridge Between Past and Future</p>
-        </footer>
+const Homepage = () => {
+  return (
+    <div className="home-page">
+      <header className="header">
+        <h3>MARKER</h3>
+      </header>
+       <div>
+        <Navbar />
       </div>
-    );
-  };
+      <h1> Share your story</h1>
+      <main className="main-content">
+        <div className='slogan'>
+        </div>
+        <section className="latest-articles">
+          <div className="articles-container">
+            <div className="article-card">
+              <img src="./Irving.jpg" alt="Irving" />
+              <h1>Peddling in Summer</h1>
 
-  export default Homepage;
+              <p>
+                Irving, located in the heart of Texas, is a city known for its blend of urban sophistication and natural beauty.
+                <br />
+                One of the best ways to explore Irving is by peddling through its numerous scenic trails and parks. The Campion Trail is particularly popular, offering miles of picturesque paths along the Elm Fork and West Fork of the Trinity River. It's perfect for cyclists, joggers, and nature enthusiasts.
+                <br />
+                Peddling through Irving during the golden hour is an experience like no other. As the sun begins to set, the trails are bathed in a soft, golden light, enhancing the beauty of the surrounding landscapes. The serene environment, combined with the warm glow of the sunset, provides a tranquil escape from the bustling city life. Whether you’re a seasoned cyclist or just looking for a leisurely ride, Irving’s trails offer a perfect setting to unwind and connect with nature.
+              </p>
+            </div>
+          </div>
+          <div className="articles-container">
+            <div className="article-card">
+              <img src="./Irving.jpg" alt="Irving" />
+              <h1>Peddling in Summer</h1>
+
+              <p>
+                Irving, located in the heart of Texas, is a city known for its blend of urban sophistication and natural beauty.
+                <br />
+                One of the best ways to explore Irving is by peddling through its numerous scenic trails and parks. The Campion Trail is particularly popular, offering miles of picturesque paths along the Elm Fork and West Fork of the Trinity River. It's perfect for cyclists, joggers, and nature enthusiasts.
+                <br />
+                Peddling through Irving during the golden hour is an experience like no other. As the sun begins to set, the trails are bathed in a soft, golden light, enhancing the beauty of the surrounding landscapes. The serene environment, combined with the warm glow of the sunset, provides a tranquil escape from the bustling city life. Whether you’re a seasoned cyclist or just looking for a leisurely ride, Irving’s trails offer a perfect setting to unwind and connect with nature.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer className="footer">
+        <p>Building a Bridge Between Past and Future</p>
+      </footer>
+     
+      <div>
+        <Navbar />
+      </div>
+    </div>
+  );
+};
+
+export default Homepage;
