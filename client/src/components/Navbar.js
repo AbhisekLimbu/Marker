@@ -15,17 +15,21 @@ const Navbar = () => {
           }
 
           .navbar button {
-            background-color: white;
-            border: none;
-            color: black;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
+            padding: 15px !important;
+            background: white; /* Override the green gradient background */
+            color: black !important; /* Override the text color */
+            border: none !important;
+            border-radius: 8px !important;
+            font-size: 18px !important;
+            font-weight: bold !important;
+            cursor: pointer !important;
+            transition: background 0.3s ease, transform 0.3s ease !important;
+            font-family: 'Roboto', sans-serif !important; /* Use the Roboto font */
           }
 
           .navbar button:hover {
-            background-color: #f0f0f0; /* Slightly gray background on hover */
-            color: black;
+            background: #f0f0f0 !important; /* Ensure hover background is gray */
+            color: black !important;
           }
         `}
       </style>

@@ -8,10 +8,10 @@ const Homepage = () => {
       <header className="header">
         <h3>MARKER</h3>
       </header>
-       <div>
+
+      <div>
         <Navbar />
       </div>
-      <h1> Share your story</h1>
       <main className="main-content">
         <div className='slogan'>
         </div>
@@ -47,7 +47,7 @@ const Homepage = () => {
         </section>
       </main>
       <footer className="footer">
-        <p>Building a Bridge Between Past and Future</p>
+        <p>writting a symphony</p>
       </footer>
      
       <div>

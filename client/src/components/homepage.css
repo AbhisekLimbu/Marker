@@ -23,33 +23,33 @@ body {
 
 .slogan {
   text-align: center;
-  margin-top: 4rem; 
+  margin-top: 4rem; /* Adjust the margin-top value as needed */
 }
 
 .articles-container {
-  display: flex; 
-  justify-content: center; 
-  padding: 0 10%; 
+  display: flex; /* Change to flex layout for better control */
+  justify-content: center; /* Center the article card */
+  padding: 0 10%; /* Add padding to the container to leave space on both sides */
   gap: 2rem;
 }
 
 .article-card {
-  width: 150vw; 
+  width: 100%; /* Ensure the article card takes full width of its parent container */
   text-align: center;
-  overflow: hidden; 
 }
 
 .article-card img {
-  width: 100%; 
-  height: auto; 
-  object-fit: cover; 
+  width: 100%; /* Make the image take the full width of its container */
+  height: 250px; /* Set a fixed height */
+  object-fit: cover; /* Ensure the image covers the area without distortion */
   border-radius: none;
 }
 
 .article-card h1 {
-  font-family: 'Lora', serif; 
-  color: #333; 
-  margin: 1rem 0; 
+  font-family: 'Lora', serif; /* Apply the Google Font */
+  font-size: 2rem; /* Adjust the font size */
+  color: #333; /* Set a color for the text */
+  margin: 1rem 0; /* Add margin for spacing */
 }
 
 .article-card p {
@@ -63,5 +63,28 @@ body {
   color: black;
   padding: 1rem;
   text-align: center;
+  text-size: small;
 }
 
+.navbar {
+  background: white;
+  list-style: none;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.navbar button {
+  background-color: white;
+  border: 2px solid white;
+  color: black;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar button:hover {
+  background-color: #f0f0f0; /* Slightly gray background on hover */
+  color: black;
+}
