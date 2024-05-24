@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './storyform.css';
 
 const StoryForm = () => {
@@ -7,6 +7,8 @@ const StoryForm = () => {
   const [image, setImage] = useState(null);
   const [location, setLocation] = useState('');
   const [imagePreview, setImagePreview] = useState(null);
+
+  const fileInputRef = useRef(null); // Add a ref for the file input
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
@@ -25,12 +27,15 @@ const StoryForm = () => {
   const handleDiscardImage = () => {
     setImage(null);
     setImagePreview(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''; // Clear the file input field
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('title', title); 
+    formData.append('title', title);
     formData.append('content', content);
     formData.append('image', image);
     formData.append('location', location);
@@ -42,13 +47,20 @@ const StoryForm = () => {
 
     if (response.ok) {
       alert('Story submitted successfully');
-      setTitle('');
-      setContent('');
-      setImage(null);
-      setLocation('');
-      setImagePreview(null);
+      handleReset();
     } else {
       alert('Failed to submit story');
+    }
+  };
+
+  const handleReset = () => {
+    setTitle('');
+    setContent('');
+    setImage(null);
+    setLocation('');
+    setImagePreview(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = ''; // Clear the file input field
     }
   };
 
@@ -62,11 +74,12 @@ const StoryForm = () => {
           name="image"
           accept="image/*"
           onChange={handleImageChange}
+          ref={fileInputRef} // Attach the ref to the file input
         />
         {imagePreview && (
           <div className="image-preview-container">
             <img src={imagePreview} alt="Selected" className="image-preview" />
-            <button type="button" onClick={handleDiscardImage}>Discard</button>
+            <button type="button" onClick={handleDiscardImage}>Discard Image</button>
           </div>
         )}
 
@@ -100,7 +113,10 @@ const StoryForm = () => {
           style={{ width: '100%' }}
         />
 
-        <button type="submit">POST</button>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <button type="submit">POST</button>
+          <button type="button" onClick={handleReset} style={{ background: '#dc3545', color: 'white', border: 'none' }}>Discard</button>
+        </div>
       </form>
     </div>
   );

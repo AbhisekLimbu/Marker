@@ -17,9 +17,10 @@ const About = () => {
           </div>
           <div className="text-container">
             <div className="article-text">
-              <h1>Preserving Local Stories</h1>
+              
+              <h1>Architectural Insights</h1>
               <p>
-                At MARKER, we capture and share unique stories told by local guides, community members, and visitors. Join us in celebrating storytelling and exploring the world's rich tapestry of narratives.
+                Here at MARKER, we delve into the perspectives of architecture students, uncovering their thoughts on their current projects, their creative processes, and their reflections on historical buildings. Explore the insights of the next generation of architects as they share their journeys and visions.
               </p>
             </div>
           </div>
