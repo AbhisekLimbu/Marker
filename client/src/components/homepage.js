@@ -28,21 +28,25 @@ const Homepage = () => {
           <div className="articles-container">
             <div className="article-card">
               <img src="dallas1.jpg" alt="Irving" />
-              <h1>Exploring Dallas Downtown Architecture</h1>
-              <p>
-                Dallas Downtown is renowned for its striking architecture that seamlessly blends historic and modern styles. The skyline is dominated by landmarks such as the Reunion Tower, with its distinctive spherical design, and the modernist style of the AT&T Performing Arts Center.
-                <br />
-                Walking through the streets of Downtown Dallas, you can witness a rich tapestry of architectural history. The Neoclassical designs of the early 20th century buildings stand proudly alongside sleek, glass skyscrapers that reflect the city's dynamic growth.
-                <br />
-                One notable example is the Old Red Museum, an architectural gem with its Romanesque Revival style, contrasting beautifully with the contemporary structures nearby. The art deco elements of the Mercantile National Bank Building further add to the architectural diversity.
-              </p>
-              
+              <div className="article-details">
+                <h1>Exploring Dallas Downtown Architecture</h1>
+                <p className="article-location">📍 Dallas Downtown</p>
+                <p>
+                  Dallas Downtown is renowned for its striking architecture that seamlessly blends historic and modern styles. The skyline is dominated by landmarks such as the Reunion Tower, with its distinctive spherical design, and the modernist style of the AT&T Performing Arts Center.
+                  <br />
+                  Walking through the streets of Downtown Dallas, you can witness a rich tapestry of architectural history. The Neoclassical designs of the early 20th century buildings stand proudly alongside sleek, glass skyscrapers that reflect the city's dynamic growth.
+                  <br />
+                  One notable example is the Old Red Museum, an architectural gem with its Romanesque Revival style, contrasting beautifully with the contemporary structures nearby. The art deco elements of the Mercantile National Bank Building further add to the architectural diversity.
+                </p>
+              </div>
             </div>
           </div>
           <div className="articles-container">
             <div className="article-card">
               <img src="./Irving.jpg" alt="Irving" />
               <h1>Peddling in Summer</h1>
+              <p className="article-location">📍 Irving</p>
+
               <p>
                 Irving, located in the heart of Texas, is a city known for its blend of urban sophistication and natural beauty.
                 <br />
