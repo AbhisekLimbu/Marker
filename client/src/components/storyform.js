@@ -37,7 +37,7 @@ const StoryForm = () => {
 
   return (
     <div className="container">
-      <h1>TELL YOUR STORY</h1>
+      
       <form onSubmit={handleSubmit}>
         <label htmlFor="image">Image:</label>
         <input

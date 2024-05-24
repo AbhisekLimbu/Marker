@@ -1,17 +1,11 @@
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&display=swap');
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;700&display=swap');
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: white;
   margin: 0;
   padding: 0;
-}
-
-.main-content {
-  padding: 5rem;
-  margin: 2rem auto;
-  max-width: 800px;
 }
 
 .header {
@@ -19,37 +13,70 @@ body {
   color: black;
   padding: 1rem;
   text-align: center;
+  font-family: 'Lora', serif; /* Use Lora for the header */
+}
+
+.document-journey-container {
+  display: flex;
+  justify-content: center !important; 
+  margin: 20px;
+  width: 100%;
+}
+
+.document-journey-button {
+  background-color: white !important;
+  border: none; 
+  color : black;
+  padding: 10px 20px;
+  border-radius: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Roboto', sans-serif; /* Use Roboto for the button */
+}
+
+.document-journey-button:hover {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.main-content {
+  padding: 5rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  font-family: 'Roboto', sans-serif; /* Use Roboto for the main content */
 }
 
 .slogan {
   text-align: center;
-  margin-top: 4rem; /* Adjust the margin-top value as needed */
+  margin-top: 4rem;
+  font-family: 'Lora', serif; /* Use Lora for the slogan */
 }
 
 .articles-container {
-  display: flex; /* Change to flex layout for better control */
-  justify-content: center; /* Center the article card */
-  padding: 0 10%; /* Add padding to the container to leave space on both sides */
+  display: flex;
+  justify-content: center;
+  padding: 0 10%;
   gap: 2rem;
 }
 
 .article-card {
-  width: 100%; /* Ensure the article card takes full width of its parent container */
+  width: 100%;
   text-align: center;
+  font-family: 'Roboto', sans-serif; /* Use Roboto for the article text */
 }
 
 .article-card img {
-  width: 100%; /* Make the image take the full width of its container */
-  height: 250px; /* Set a fixed height */
-  object-fit: cover; /* Ensure the image covers the area without distortion */
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
   border-radius: none;
 }
 
 .article-card h1 {
-  font-family: 'Lora', serif; /* Apply the Google Font */
-  font-size: 2rem; /* Adjust the font size */
-  color: #333; /* Set a color for the text */
-  margin: 1rem 0; /* Add margin for spacing */
+  font-family: 'Lora', serif; /* Use Lora for the article titles */
+  font-size: 2rem;
+  color: #333;
+  margin: 1rem 0;
 }
 
 .article-card p {
@@ -63,7 +90,7 @@ body {
   color: black;
   padding: 1rem;
   text-align: center;
-  text-size: small;
+  font-family: 'Roboto', sans-serif; /* Use Roboto for the footer */
 }
 
 .navbar {
@@ -82,9 +109,10 @@ body {
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
+  font-family: 'Roboto', sans-serif; /* Use Roboto for the navbar buttons */
 }
 
 .navbar button:hover {
-  background-color: #f0f0f0; /* Slightly gray background on hover */
+  background-color: #f0f0f0;
   color: black;
 }

@@ -1,26 +1,36 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './homepage.css';
 import Navbar from './Navbar';
 
 const Homepage = () => {
+  const navigate = useNavigate();
+
+  
+
+  const handleButtonClick = () => {
+    navigate('/storyform');
+  };
+ 
+
   return (
     <div className="home-page">
       <header className="header">
         <h3>MARKER</h3>
       </header>
-
       <div>
         <Navbar />
       </div>
+      <button className="document-journey-button" onClick={handleButtonClick}>
+        Document Your Journey
+      </button>
       <main className="main-content">
-        <div className='slogan'>
-        </div>
+        
         <section className="latest-articles">
           <div className="articles-container">
             <div className="article-card">
               <img src="./Irving.jpg" alt="Irving" />
               <h1>Peddling in Summer</h1>
-
               <p>
                 Irving, located in the heart of Texas, is a city known for its blend of urban sophistication and natural beauty.
                 <br />
@@ -34,7 +44,6 @@ const Homepage = () => {
             <div className="article-card">
               <img src="./Irving.jpg" alt="Irving" />
               <h1>Peddling in Summer</h1>
-
               <p>
                 Irving, located in the heart of Texas, is a city known for its blend of urban sophistication and natural beauty.
                 <br />
@@ -47,9 +56,8 @@ const Homepage = () => {
         </section>
       </main>
       <footer className="footer">
-        <p>writting a symphony</p>
+        <p>Writing a symphony</p>
       </footer>
-     
       <div>
         <Navbar />
       </div>

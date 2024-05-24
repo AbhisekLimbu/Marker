@@ -23,7 +23,7 @@ const Navbar = () => {
             color: black !important; /* Override the text color */
             border: none !important;
             border-radius: 8px !important;
-            font-size: 18px !important;
+            font-size: 18px !important;n
             font-weight: bold !important;
             cursor: pointer !important;
             transition: background 0.3s ease, transform 0.3s ease !important;
