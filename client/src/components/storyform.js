@@ -10,7 +10,7 @@ const StoryForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('title', title);
+    formData.append('title', title); 
     formData.append('content', content);
     formData.append('image', image);
     formData.append('location', location);

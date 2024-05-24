@@ -1,6 +1,9 @@
+// Navbar.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+
   return (
     <>
       <style>
@@ -34,9 +37,9 @@ const Navbar = () => {
         `}
       </style>
       <nav className="navbar">
-        <button>Stories</button>
-        <button>Gallery</button>
-        <button>About</button>
+        <Link to="/stories"><button>Stories</button></Link>
+        <Link to="/gallery"><button>Gallery</button></Link>
+        <Link to="/about"><button>About</button></Link>
       </nav>
     </>
   );
