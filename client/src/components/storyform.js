@@ -6,6 +6,26 @@ const StoryForm = () => {
   const [content, setContent] = useState('');
   const [image, setImage] = useState(null);
   const [location, setLocation] = useState('');
+  const [imagePreview, setImagePreview] = useState(null);
+
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+    setImage(selectedImage);
+    if (selectedImage) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(selectedImage);
+    } else {
+      setImagePreview(null);
+    }
+  };
+
+  const handleDiscardImage = () => {
+    setImage(null);
+    setImagePreview(null);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,14 +35,10 @@ const StoryForm = () => {
     formData.append('image', image);
     formData.append('location', location);
 
-    // const response = await fetch('localohost://3001/localstory', {
-    //   method: 'POST',
-    //   body: formData,
-    // });
     const response = await fetch('http://localhost:3001/localstory', {
-  method: 'POST',
-  body: formData,
-});
+      method: 'POST',
+      body: formData,
+    });
 
     if (response.ok) {
       alert('Story submitted successfully');
@@ -30,6 +46,7 @@ const StoryForm = () => {
       setContent('');
       setImage(null);
       setLocation('');
+      setImagePreview(null);
     } else {
       alert('Failed to submit story');
     }
@@ -37,7 +54,6 @@ const StoryForm = () => {
 
   return (
     <div className="container">
-      
       <form onSubmit={handleSubmit}>
         <label htmlFor="image">Image:</label>
         <input
@@ -45,8 +61,14 @@ const StoryForm = () => {
           id="image"
           name="image"
           accept="image/*"
-          onChange={(e) => setImage(e.target.files[0])}
+          onChange={handleImageChange}
         />
+        {imagePreview && (
+          <div className="image-preview-container">
+            <img src={imagePreview} alt="Selected" className="image-preview" />
+            <button type="button" onClick={handleDiscardImage}>Discard</button>
+          </div>
+        )}
 
         <label htmlFor="title">Title:</label>
         <input
