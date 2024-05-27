@@ -20,7 +20,7 @@ const Homepage = () => {
       </div>
       <div className="document-journey-container">
         <button className="document-journey-button" onClick={handleButtonClick}>
-          Document Your Journey
+          write your space stories
         </button>
       </div>
       <main className="main-content">

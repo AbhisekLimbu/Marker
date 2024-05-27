@@ -1,12 +1,21 @@
 const mongoose = require('mongoose');
 
 const storySchema = new mongoose.Schema({
-  title: String,
-  content: String,
-  image: String,
+  image: {
+    type: String,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
   location: {
-    type: { type: String, default: 'Point' },
-    coordinates: [Number], 
+    type: String,
+    required: true,
+  },
+  content: {
+    type: String,
+    required: true,
   },
 }, { timestamps: true });
 

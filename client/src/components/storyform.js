@@ -8,7 +8,7 @@ const StoryForm = () => {
   const [location, setLocation] = useState('');
   const [imagePreview, setImagePreview] = useState(null);
 
-  const fileInputRef = useRef(null); // Add a ref for the file input
+  const fileInputRef = useRef(null);
 
   const handleImageChange = (e) => {
     const selectedImage = e.target.files[0];
@@ -28,28 +28,36 @@ const StoryForm = () => {
     setImage(null);
     setImagePreview(null);
     if (fileInputRef.current) {
-      fileInputRef.current.value = ''; // Clear the file input field
+      fileInputRef.current.value = '';
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData();
     formData.append('title', title);
     formData.append('content', content);
     formData.append('image', image);
     formData.append('location', location);
 
-    const response = await fetch('http://localhost:3001/localstory', {
-      method: 'POST',
-      body: formData,
-    });
+    try {
+      const response = await fetch('http://localhost:3001/localstory', {
+        method: 'POST',
+        body: formData,
+      });
 
-    if (response.ok) {
-      alert('Story submitted successfully');
-      handleReset();
-    } else {
-      alert('Failed to submit story');
+      if (response.ok) {
+        alert('Story submitted successfully');
+        handleReset();
+      } else {
+        const errorData = await response.json();
+        console.error('Error response:', errorData);
+        alert(`Failed to submit story: ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred while submitting the story');
     }
   };
 
@@ -60,7 +68,7 @@ const StoryForm = () => {
     setLocation('');
     setImagePreview(null);
     if (fileInputRef.current) {
-      fileInputRef.current.value = ''; // Clear the file input field
+      fileInputRef.current.value = '';
     }
   };
 
@@ -74,7 +82,7 @@ const StoryForm = () => {
           name="image"
           accept="image/*"
           onChange={handleImageChange}
-          ref={fileInputRef} // Attach the ref to the file input
+          ref={fileInputRef}
         />
         {imagePreview && (
           <div className="image-preview-container">
