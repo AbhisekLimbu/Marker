@@ -22,25 +22,28 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// Function for performing database operation with retry logic
 async function performDatabaseOperationWithRetry(newStory) {
   let retries = 3;
   while (retries > 0) {
     try {
-      // Attempt to save the new story
       await newStory.save();
+      console.log('Database operation succeeded');
       return; // Operation succeeded, exit the loop
     } catch (error) {
-      // Retry only for specific Mongoose timeout error
+      console.error(`Attempt failed. Error: ${error.message}`);
       if (error.name === 'MongooseError' && error.message.includes('buffering timed out')) {
         retries--;
+        console.log(`Retrying... Attempts left: ${retries}`);
+        if (retries === 0) {
+          console.error('All retry attempts failed');
+          throw new Error('Database operation failed after multiple retries');
+        }
       } else {
-        // Rethrow other errors
+        console.error('Non-retryable error occurred:', error);
         throw error;
       }
     }
   }
-  throw new Error('Database operation failed after multiple retries');
 }
 
 router.post('/', upload.single('image'), async (req, res) => {
@@ -55,7 +58,6 @@ router.post('/', upload.single('image'), async (req, res) => {
       return res.status(400).json({ message: 'Title, content, and location are required.' });
     }
 
-    // Check if location is a valid string
     if (typeof location !== 'string') {
       return res.status(400).json({ message: 'Location must be a string.' });
     }
@@ -69,13 +71,12 @@ router.post('/', upload.single('image'), async (req, res) => {
       content,
     });
 
-    // Call the function with retry logic
     await performDatabaseOperationWithRetry(newStory);
 
     res.status(200).json(newStory);
   } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ message: 'Failed to save story.' }); // Improving error message
+    console.error('Error during database operation:', error);
+    res.status(500).json({ message: 'Failed to save story due to server error.' }); // Improving error message
   }
 });
 
