@@ -18,6 +18,16 @@ const Story = () => {
     fetchStories();
   }, []); // Empty dependency array to run only once on mount
 
+  const deleteStory = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/story/${id}`);
+      // Update the stories state to remove the deleted story
+      setStories(stories.filter(story => story._id !== id));
+    } catch (error) {
+      console.error('Error deleting story:', error);
+    }
+  };
+
   return (
     <div className="home-page">
       <header className="header">
@@ -32,11 +42,12 @@ const Story = () => {
           {stories.map(story => (
             <div className="articles-container" key={story._id}>
               <div className="article-card">
-                <img src={story.image} alt={story.title} />
+                <img src={`http://localhost:3001/${story.image}`} alt={story.title} />
                 <div className="article-details">
                   <h1>{story.title}</h1>
                   <p className="article-location">📍 {story.location}</p>
                   <p>{story.content}</p>
+                  <button onClick={() => deleteStory(story._id)}>Delete</button>
                 </div>
               </div>
             </div>

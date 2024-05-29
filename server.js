@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./database');
 const postingDB = require('./routes/postingDB');
 const storyRoutes = require('./routes/storyRoutes'); // Corrected import path
+const deleteRoutes = require('./routes/delete');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
@@ -30,7 +31,7 @@ app.get('/', (req, res) => {
 
 app.use('/localstory', postingDB);
 app.use('/story', storyRoutes); // Use the correct path for story routes
-
+app.use('/story', deleteRoutes);
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log('Server is running on port', port);

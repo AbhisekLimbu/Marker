@@ -49,7 +49,7 @@ const StoryForm = () => {
 
       if (response.ok) {
         alert('Story submitted successfully');
-        handleReset();
+        handleReset(); 
       } else {
         const errorData = await response.json();
         console.error('Error response:', errorData);
