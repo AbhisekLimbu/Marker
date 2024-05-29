@@ -3,14 +3,13 @@ import axios from 'axios';
 import './homepage.css';
 import Navbar from './Navbar';
 
-const Homepage = () => {
+const Story = () => {
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
-    // Fetch stories from the backend when the component mounts
     const fetchStories = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/stories');
+        const response = await axios.get('http://localhost:3001/story');
         setStories(response.data);
       } catch (error) {
         console.error('Error fetching stories:', error);
@@ -26,7 +25,7 @@ const Homepage = () => {
       </header>
       <div>
         <Navbar />
-    </div>
+      </div>
      
       <main className="main-content">
         <section className="latest-articles">
@@ -42,7 +41,6 @@ const Homepage = () => {
               </div>
             </div>
           ))}
-
         </section>
       </main>
       <footer className="footer">
@@ -55,4 +53,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default Story;
