@@ -1,0 +1,9 @@
+.delete-button {
+    display: none;
+  }
+  
+  .article-card:hover .delete-button,
+  .article-card:focus .delete-button {
+    display: inline-block;
+  }
+  

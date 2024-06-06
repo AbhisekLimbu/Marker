@@ -1,10 +1,10 @@
 const express = require('express');
-const connectDB = require('./database');
-const postingDB = require('./routes/postingDB');
-const storyRoutes = require('./routes/storyRoutes'); // Corrected import path
-const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
+const cors = require('cors');
+const connectDB = require('./database');
+const postingDB = require('./routes/postingDB');
+const storyRoutes = require('./routes/storyRoutes');
 
 const app = express();
 
@@ -22,20 +22,23 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve static files from the "uploads" directory
 app.use('/uploads', express.static('uploads'));
 
-const buildPath = path.join(__dirname, './client/build');
+// Serve static files from the React app's build directory
+const buildPath = path.join(__dirname, 'client/build');
 app.use(express.static(buildPath));
 
 // Add your API routes
 app.use('/localstory', postingDB);
-app.use('/story', storyRoutes); // Use the correct path for story routes
+app.use('/stories', storyRoutes);
 
-// All other GET requests not handled before will return the React app
+// Catch-all handler to serve the React app for any route not handled by the above routes
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(buildPath, 'index.html'));
 });
 
+// Start the server
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log('Server is running on port', port);

@@ -37,7 +37,7 @@ const Navbar = () => {
         `}
       </style>
       <nav className="navbar">
-        <Link to="/stories"><button>Stories</button></Link>
+        <Link to="/story"><button>Story</button></Link>
         <Link to="/gallery"><button>Gallery</button></Link>
         <Link to="/about"><button>About</button></Link>
       </nav>
