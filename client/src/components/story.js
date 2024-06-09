@@ -3,6 +3,7 @@ import axios from 'axios';
 import './homepage.css';
 import Navbar from './Navbar';
 import './story.css';
+
 const Story = () => {
   const [stories, setStories] = useState([]);
 
@@ -22,7 +23,8 @@ const Story = () => {
     try {
       const confirmed = window.confirm('Are you sure you want to delete this story?');
       if (confirmed) {
-        await axios.delete(`http://localhost:3001/stories/${id}`);
+        const response = await axios.delete(`http://localhost:3001/stories/${id}`);
+        console.log('Delete response:', response.data); // Add this line for logging
         // Update the stories state to remove the deleted story
         setStories(stories.filter(story => story._id !== id));
       }
@@ -34,7 +36,7 @@ const Story = () => {
   return (
     <div className="home-page">
       <header className="header">
-        <h3>stories</h3>
+        <h3>Stories</h3>
       </header>
       <div>
         <Navbar />
@@ -47,11 +49,13 @@ const Story = () => {
                 <img src={`http://localhost:3001/uploads/${story.image}`} alt={story.title} />
                 <div className="article-details">
                   <h1>{story.title}</h1>
-                  <p className="article-location">📍 {story.location}</p>
+                  <p className="article-location">
+                    📍 {story.location} | {new Date(story.createdAt).toLocaleDateString()}
+                  </p>
                   <p>{story.content}</p>
                   <button
                     className="delete-button"
-                    onClick={() => deleteStory(story._id)}
+                    onClick={() => deleteStory(story._id)} // This ensures the correct ID is used
                   >
                     Delete
                   </button>

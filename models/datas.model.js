@@ -1,15 +1,7 @@
 const mongoose = require('mongoose');
 
-const storySchema = new mongoose.Schema({
-  image: {
-    type: String,
-    required: true,
-  },
+const StorySchema = new mongoose.Schema({
   title: {
-    type: String,
-    required: true,
-  },
-  location: {
     type: String,
     required: true,
   },
@@ -17,8 +9,20 @@ const storySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-}, { timestamps: true });
+  image: {
+    type: String,
+    required: true,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now, 
+  },
+});
 
-const Story = mongoose.model('Story', storySchema);
+const Story = mongoose.model('Story', StorySchema);
 
 module.exports = Story;

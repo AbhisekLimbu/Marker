@@ -4,7 +4,7 @@ const fs = require('fs');
 const cors = require('cors');
 const connectDB = require('./database');
 const postingDB = require('./routes/postingDB');
-const storyRoutes = require('./routes/storyRoutes');
+const storyRoutes = require('./routes/storyRoutes'); // Ensure this is correctly imported
 
 const app = express();
 
@@ -31,7 +31,7 @@ app.use(express.static(buildPath));
 
 // Add your API routes
 app.use('/localstory', postingDB);
-app.use('/stories', storyRoutes);
+app.use('/stories', storyRoutes); // Use storyRoutes for /stories
 
 // Catch-all handler to serve the React app for any route not handled by the above routes
 app.get('*', (req, res) => {

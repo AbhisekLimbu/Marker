@@ -1,19 +1,13 @@
-const express = require('express');
-const router = express.Router();
-const Story = require('../models/datas.model');
-
-// DELETE a story by ID
-router.delete('/:id', async (req, res) => {
+const deleteStory = async (id) => {
   try {
-    const story = await Story.findByIdAndDelete(req.params.id);
-    if (!story) {
-      return res.status(404).json({ message: 'Story not found' });
+    const confirmed = window.confirm('Are you sure you want to delete this story?');
+    if (confirmed) {
+      const response = await axios.delete(`http://localhost:3001/stories/${id}`);
+      console.log('Delete response:', response.data); // Add this line for logging
+      // Update the stories state to remove the deleted story
+      setStories(stories.filter(story => story._id !== id));
     }
-    res.status(200).json({ message: 'Story deleted successfully' });
   } catch (error) {
-    console.error('Error deleting story:', error); // Add this line
-    res.status(500).json({ message: 'Failed to delete story' });
+    console.error('Error deleting story:', error);
   }
-});
-
-module.exports = router;
+};
