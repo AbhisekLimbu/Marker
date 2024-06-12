@@ -1,6 +1,4 @@
-Sure! Based on the project you are working on, which appears to be a portfolio website featuring stories with accompanying images and additional details, here's a sample README file:
 
----
 
 # Portfolio Building Project
 
