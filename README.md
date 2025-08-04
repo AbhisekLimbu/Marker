@@ -98,17 +98,3 @@ portfolio-project/
 - **DELETE /stories/:id**: Delete a story by ID
 
 
-
-
-
-## Contributing
-
-Feel free to open issues or submit pull requests with improvements. Contributions are welcome!
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-Feel free to customize this README file as per your project's specific details and requirements.
